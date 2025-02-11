@@ -1,6 +1,10 @@
 # Jenkinsfile (Declarative Pipeline)
 pipeline {
 	agent any
+	
+	tools {
+		jdk 'jdk11'
+		}
 	stages {
 		stage( 'clone repo' ) {
 			steps {
