@@ -3,6 +3,7 @@ pipeline {
 	
 	tools {
 		jdk 'jdk11'
+		maven 'maven 3.9.9'
 		}
 	stages {
 		stage( 'clone repo' ) {
@@ -13,7 +14,8 @@ pipeline {
 
  		stage( 'Build' ) {
 			steps {
-				sh 'mvn install'
+				sh(script: 'mvn clean package',
+		returnStatus: true)
 				}
 			}
 		}
