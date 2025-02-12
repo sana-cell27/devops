@@ -1,21 +1,15 @@
 pipeline {
 	agent any
-	
-	tools {
-		jdk 'jdk11'
-		maven 'maven 3.9.9'
-		}
 	stages {
-		stage( 'clone repo' ) {
-			steps {
-				checkout scm
+		stage( 'Clone Repository' )
+			steps { 
+			git branch: 'main' , url:'https://github.com/sana-cell27/devops.git'
 				}
-			}
-
- 		stage( 'Build' ) {
-			steps {
-				sh('mvn install')
-				}
-			}
 		}
+		stage( 'Build' ) {
+			steps {
+				sh 'mvn clean package'
+				}	
+			}
 	}
+
