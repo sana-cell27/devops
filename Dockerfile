@@ -1,7 +1,7 @@
 FROM ubuntu:20.04 
 RUN apt-get update
 RUN apt-get install -y openjdk-11-jdk
-ADD apache-tomcat-8.5.38.tar.gz /root
-COPY target/gamutkart.war /root/apache-tomcat-8.5.38/webapps
-ENTRYPOINT /root/apache-tomcat-8.5.38/bin/startup.sh && bash
+ADD apache-tomcat-9.0.100.tar.gz  /root
+COPY target/hello-world-1.0-SNAPSHOT.war /root/apache-tomcat-9.0.100.tar.gz/webapps
+ENTRYPOINT /root/apache-tomcat-9.0.100.tar.gz/bin/startup.sh && bash
 
